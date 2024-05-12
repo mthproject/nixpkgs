@@ -141,7 +141,7 @@ in stdenv.mkDerivation (finalAttrs: {
     "${setHost}.llvm-config=${llvmSharedForHost.dev}/bin/llvm-config"
     "${setTarget}.llvm-config=${llvmSharedForTarget.dev}/bin/llvm-config"
   ] ++ optionals withLibCxx [
-    "--enable-llvm-libunwind" # TODO: Should be system-, right?
+    "--llvm-libunwind=system" # TODO: Should be system-, right?
   ] ++ optionals (stdenv.isLinux && !stdenv.targetPlatform.isRedox) [
     "--enable-profiler" # build libprofiler_builtins
   ] ++ optionals stdenv.buildPlatform.isMusl [
