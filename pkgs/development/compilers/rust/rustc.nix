@@ -226,7 +226,7 @@ in stdenv.mkDerivation (finalAttrs: {
   ]
     ++ optionals fastCross [ lndir makeWrapper ];
 
-  buildInputs = [ openssl ]
+  buildInputs = [ openssl llvmPackages.libunwind ]
     ++ optionals stdenv.isDarwin [ libiconv Security ]
     ++ optional (!withBundledLLVM) llvmShared;
 

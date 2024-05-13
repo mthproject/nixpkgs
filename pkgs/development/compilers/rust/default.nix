@@ -28,7 +28,7 @@ let
     inherit lib stdenv pkgsBuildHost pkgsBuildTarget pkgsTargetTarget;
   };
   # Allow faster cross compiler generation by reusing Build artifacts
-  fastCross = (stdenv.buildPlatform == stdenv.hostPlatform) && (stdenv.hostPlatform != stdenv.targetPlatform);
+  fastCross = false;#(stdenv.buildPlatform == stdenv.hostPlatform) && (stdenv.hostPlatform != stdenv.targetPlatform);
 in
 {
   lib = lib';
