@@ -144,6 +144,7 @@ in stdenv.mkDerivation (finalAttrs: {
   ] ++ optionals withLibCxx [
     "${setHost}.llvm-libunwind=system"
     "${setTarget}.llvm-libunwind=system" # TODO: Should be system-, right?
+    "--enable-use-libcxx"
   ] ++ optionals (stdenv.isLinux && !stdenv.targetPlatform.isRedox) [
     "--enable-profiler" # build libprofiler_builtins
   ] ++ optionals stdenv.buildPlatform.isMusl [
